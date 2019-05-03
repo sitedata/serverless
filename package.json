@@ -2,7 +2,7 @@
   "name": "serverless",
   "version": "1.41.1",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=8.0"
   },
   "preferGlobal": true,
   "homepage": "https://github.com/serverless/serverless#readme",
