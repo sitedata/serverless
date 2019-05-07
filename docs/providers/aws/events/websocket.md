@@ -127,7 +127,7 @@ functions:
             identitySource:
               - 'route.request.header.Auth'
               - 'route.request.querystring.Auth'
-            
+
   auth:
     handler: handler.auth
 ```
@@ -147,7 +147,7 @@ functions:
             identitySource:
               - 'route.request.header.Auth'
               - 'route.request.querystring.Auth'
-            
+
   auth:
     handler: handler.auth
 ```
@@ -177,7 +177,7 @@ const sendMessageToClient = (url, connectionId, payload) => new Promise((resolve
 module.exports.defaultHandler = async (event, context) => {
   const domain = event.requestContext.domainName;
   const stage = event.requestContext.stage;
-  const connectionId = event.requestContext.connectionId; 
+  const connectionId = event.requestContext.connectionId;
   const callbackUrlForAWS = util.format(util.format('https://%s/%s', domain, stage)); //construct the needed url
   await sendMessageToClient(callbackUrlForAWS, connectionId, event);
 
@@ -186,3 +186,32 @@ module.exports.defaultHandler = async (event, context) => {
   };
 }
 ```
+
+## Tags / Stack Tags
+
+Websocket stage variables will be set to the `tags` and `stackTags` values defined at the `provider` level:
+
+```yml
+# serverless.yml
+
+provider:
+  name: aws
+  stackTags:
+    stackTagKey: stackTagValue
+  tags:
+    tagKey: tagValue
+```
+
+### Logs
+
+Use the following configuration to enable Websocket logs:
+
+```yml
+# serverless.yml
+provider:
+  name: aws
+  logs:
+    websocket: true
+```
+
+The log streams will be generated in a dedicated log group which follows the naming schema `/aws/websockets/{service}-{stage}`.
