@@ -94,7 +94,7 @@
   "dependencies": {
     "archiver": "^1.1.0",
     "async": "^1.5.2",
-    "aws-sdk": "^2.430.0",
+    "aws-sdk": "^2.814.0",
     "bluebird": "^3.5.0",
     "cachedir": "^2.2.0",
     "chalk": "^2.0.0",
