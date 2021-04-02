@@ -6,6 +6,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "serverless-azure-functions": "^0.1.0"
+    "serverless-azure-functions": "^1.0.0"
   }
 }
